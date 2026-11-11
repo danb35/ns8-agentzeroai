@@ -15,7 +15,8 @@ import json
 
 config = {
     "host": os.getenv("TRAEFIK_HOST", ""),
-    "http2https": os.getenv("TRAEFIK_HTTP2HTTPS") == "True",
+    # Before the first configure-module, propose the redirection
+    "http2https": os.getenv("TRAEFIK_HTTP2HTTPS", "True") == "True",
     "lets_encrypt": os.getenv("TRAEFIK_LETS_ENCRYPT") == "True",
 }
 
